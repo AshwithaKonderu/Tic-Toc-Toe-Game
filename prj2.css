@@ -1,0 +1,434 @@
+/* 
+ @import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
+
+:root {
+    --text-light: #e9e9e9;
+    --text-dark: #363636;
+    --text-btn: #816df2;
+    --text-yellow: #dae26a;
+    --text-selected: #34D399;
+    --cell-size: 100px;
+
+    /* Images for characters */
+    /* --female-1: url('./golf_11201645.png');
+    --female-2: url('./basketball_7140103.png');
+    --male-1: url('./no_6526699.png');
+    --male-2: url('./duck_9791173.png');
+}
+
+* > * {
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+body {
+    background: rgb(54, 54, 54);
+    background-image: url(./game\ bg.jpg);
+} */
+
+/* Starting window */
+/* .container {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+}
+
+.primary-btn {
+    border: none;
+    background: var(--text-btn);
+    padding: 10px 20px;
+    border-radius: 10px;
+    color: var(--text-light);
+    margin-top: 2em;
+    font-size: 1.5em;
+    cursor: pointer;
+}
+
+.text-light {
+    color: var(--text-light);
+}
+
+.text-yellow {
+    color: var(--text-yellow);
+}
+
+.text-center {
+    text-align: center;
+}
+
+.primary-btn:hover {
+    background: var(--text-yellow);
+    color: var(--text-dark);
+}
+
+.start-game .profile .img > img {
+    cursor: pointer;
+}
+
+.start-game .profile .img > img:hover {
+    background-color: var(--text-yellow);
+}
+
+.start-game.hide {
+    display: none;
+} */
+
+/* Main Game Board */
+/* #board {
+    display: grid;
+    grid-template-columns: repeat(3, auto);
+    background-color: var(--text-light);
+    row-gap: 3px;
+    column-gap: 3px;
+}
+
+.block {
+    width: var(--cell-size);
+    height: var(--cell-size);
+    background-color: rgb(54, 54, 54);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+}
+
+.block.x, .block.x2,
+.block.y, .block.y2 {
+    cursor: not-allowed;
+}
+
+.board.x .block:not(.x):not(.y):hover {
+    background: var(--female-1) var(--text-yellow) no-repeat;
+    opacity: 0.4;
+}
+
+.board.x2 .block:not(.x2):not(.y2):hover {
+    background: var(--female-2) var(--text-yellow) no-repeat;
+    opacity: 0.4;
+}
+
+.board.y .block:not(.y):not(.x):hover {
+    background: var(--male-1) #816df2 no-repeat;
+    opacity: 0.4;
+}
+
+.board.y2 .block:not(.y2):not(.x2):hover {
+    background: var(--male-2) #816df2 no-repeat;
+    opacity: 0.4;
+} */
+
+/* x is equal to female */
+/* y is equal to male */
+/* .block.x {
+    background: var(--female-1) var(--text-yellow) no-repeat;
+    background-size: cover;
+}
+
+.block.x2 {
+    background: var(--female-2) var(--text-yellow) no-repeat;
+    background-size: cover;
+}
+
+.block.y {
+    background: var(--male-1) #816df2 no-repeat;
+    background-size: cover;
+}
+
+.block.y2 {
+    background: var(--male-2) #816df2 no-repeat;
+    background-size: cover;
+} */
+
+/* Draw and Winner Msg Window */
+/* .start-game, .draw-msg, .winner-msg {
+    position: fixed;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(49, 49, 49, 0.938);
+}
+
+.draw-msg, .winner-msg {
+    display: none;
+}
+
+.draw-msg.show, .winner-msg.show {
+    display: flex;
+}
+
+.start-game .profile .img > img.selected {
+    background-color: var(--text-selected);
+    border: 2px solid var(--text-light);
+    border-radius: 20px;
+}
+
+.win {
+    background-color: var(--text-selected) !important;
+} */ 
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
+
+:root {
+    --text-light: #e9e9e9;
+    --text-dark: #363636;
+    --text-btn: #816df2;
+    --text-yellow: #dae26a;
+    --text-selected: #34D399;
+    --cell-size: 100px;
+
+    /* Images for characters */
+    --female-1: url('./golf_11201645.png');
+    --female-2: url('./basketball_7140103.png');
+    --male-1: url('./no_6526699.png');
+    --male-2: url('./duck_9791173.png');
+}
+
+* > * {
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+body {
+    background: rgb(54, 54, 54);
+    background-image: url(./game\ bg.jpg);
+    background-size: cover;
+    background-position: center;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    color: var(--text-light);
+}
+audio {
+    display: none;
+}
+
+/* General Text Styling */
+.text-light {
+    color: var(--text-light);
+}
+
+.text-yellow {
+    color: var(--text-yellow);
+}
+
+.text-center {
+    text-align: center;
+}
+
+/* Starting Window Styling */
+.container {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    animation: fadeIn 1s ease-in-out;
+}
+
+.primary-btn {
+    border: none;
+    background: var(--text-btn);
+    padding: 10px 20px;
+    border-radius: 10px;
+    color: var(--text-light);
+    margin-top: 2em;
+    font-size: 1.5em;
+    cursor: pointer;
+    transition:  0.3s ease, transform 0.3s ease;
+}
+
+.primary-btn:hover {
+    background: var(--text-yellow);
+    color: var(--text-dark);
+    transform: scale(1.1);
+}
+
+.primary-btn:active {
+    transform: scale(1);
+}
+
+.start-game .profile .img > img {
+    cursor: pointer;
+    border-radius: 50%;
+    transition: transform 0.3s ease;
+}
+
+.start-game .profile .img > img:hover {
+    transform: scale(1.1);
+    background-color: var(--text-yellow);
+}
+
+/* Character Selection */
+.start-game.hide {
+    display: none;
+}
+
+/* Main Game Board */
+#board {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    background-color: var(--text-light);
+    row-gap: 3px;
+    column-gap: 3px;
+    margin-top: 30px;
+    animation: fadeIn 1.5s ease-in-out;
+}
+
+.block {
+    width: var(--cell-size);
+    height: var(--cell-size);
+    background-color: rgb(54, 54, 54);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.block:hover {
+    background-color: var(--text-yellow);
+    transform: scale(1.05);
+}
+
+.block.x, .block.x2,
+.block.y, .block.y2 {
+    cursor: not-allowed;
+}
+
+.board.x .block:not(.x):not(.y):hover {
+    background: var(--female-1) var(--text-yellow) no-repeat;
+    opacity: 0.4;
+}
+
+.board.x2 .block:not(.x2):not(.y2):hover {
+    background: var(--female-2) var(--text-yellow) no-repeat;
+    opacity: 0.4;
+}
+
+.board.y .block:not(.y):not(.x):hover {
+    background: var(--male-1) #816df2 no-repeat;
+    opacity: 0.4;
+}
+
+.board.y2 .block:not(.y2):not(.x2):hover {
+    background: var(--male-2) #816df2 no-repeat;
+    opacity: 0.4;
+}
+
+/* Player Tokens */
+.block.x {
+    background: var(--female-1) var(--text-yellow) no-repeat;
+    background-size: cover;
+}
+
+.block.x2 {
+    background: var(--female-2) var(--text-yellow) no-repeat;
+    background-size: cover;
+}
+
+.block.y {
+    background: var(--male-1) #816df2 no-repeat;
+    background-size: cover;
+}
+
+.block.y2 {
+    background: var(--male-2) #816df2 no-repeat;
+    background-size: cover;
+}
+
+/* Draw and Winner Message Windows */
+.start-game, .draw-msg, .winner-msg {
+    position: fixed;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(49, 49, 49, 0.9);
+    z-index: 10;
+    border-radius: 20px;
+    padding: 20px;
+    animation: fadeIn 0.5s ease-in-out;
+}
+
+.draw-msg, .winner-msg {
+    display: none;
+    animation: fadeIn 0.5s ease-in-out;
+}
+
+.draw-msg.show, .winner-msg.show {
+    display: flex;
+}
+
+.win {
+    background-color: var(--text-selected) !important;
+    animation: winAnimation 1s ease-in-out;
+}
+
+.draw-msg .draw, .winner-msg .winner {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+    font-weight: bold;
+}
+
+/* Game Window Animations */
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes winAnimation {
+    0% {
+        background-color: var(--text-selected);
+        transform: scale(1.05);
+    }
+    50% {
+        transform: scale(1.1);
+    }
+    100% {
+        background-color: var(--text-selected);
+        transform: scale(1);
+    }
+}
+
+/* Responsive Styling */
+@media (max-width: 768px) {
+    .primary-btn {
+        font-size: 1.2em;
+        padding: 8px 16px;
+    }
+
+    .start-game .profile .img > img {
+        width: 60px;
+        height: 60px;
+    }
+
+    #board {
+        width: 250px;
+        height: 250px;
+    }
+
+    .block {
+        width: 80px;
+        height: 80px;
+        font-size: 1.5rem;
+    }
+}

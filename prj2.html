@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tic Tac Toe</title>
+
+    <!-- link my stylesheet -->
+     <link rel="stylesheet" href="./prj2.css">
+
+</head>
+<body>
+    <audio id="move-sound" src="./mixkit-arcade-game-jump-coin-216.wav" preload="auto"></audio>
+    <audio id="win-sound" src="./mixkit-auditorium-moderate-applause-and-cheering-502.wav" preload="auto"></audio>
+    <audio id="draw-sound" src="./game-bonus-144751.mp3" preload="auto"></audio>
+
+
+
+
+    <!-- start game window -->
+    <div class="start-game">
+        <h1 class="text-light">Select Character</h1>
+        <div class="profile">
+            <div class="img">
+                <img src="./golf_11201645.png" class="id" data-id="x" alt="" width="70px" height="70px">
+                <img src="./basketball_7140103.png" class="id" data-id="y" alt="" width="70px" height="70px">
+            </div>
+            <div class="img">
+                <img src="./no_6526699.png" class="id" data-id="x2" alt="" width="70px" height="70px">
+                <img src="./duck_9791173.png" class="id" data-id="y2" alt=""width="70px" height="70px">
+            </div>
+        </div>
+
+        <button class="primary-btn" id="startBtn">Start Game</button>
+    </div>
+
+    <!-- game board -->
+    <div class="container">
+        <div class="board" id="board">
+            <div class="block" data-cell></div>
+            <div class="block" data-cell></div>
+            <div class="block" data-cell></div>
+            <div class="block" data-cell></div>
+            <div class="block" data-cell></div>
+            <div class="block" data-cell></div>
+            <div class="block" data-cell></div>
+            <div class="block" data-cell></div>
+            <div class="block" data-cell></div>
+        </div>
+    </div>
+
+    <!-- Draw Window -->
+    <div class="draw-msg">
+        <div class="draw">
+            <h1 class="text-center text-yellow">Draw</h1>
+        </div>
+        <button id="drawBtn" class="primary-btn">Play Again</button>
+    </div>
+
+    <!-- winner Window -->
+    <div class="winner-msg">
+        <h1 class="text-center text-yellow">Winner</h1>
+        <div class="winner"></div>
+        <button id="restartBtn" class="primary-btn">Restart</button>
+    </div>
+
+    <script type="module" src="./prj2.js"></script>
+</body>
+</html> 
+
+
+
